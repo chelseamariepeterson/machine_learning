@@ -1,9 +1,14 @@
 #!/bin/bash
+
+# Call png() with the name of the file we want to create
+png("my_plot.png")
+
+# Re-create the plot from the last exercise
 csv_data<-read.csv("regrex1.csv")
 
 print(csv_data)
 
-my_plot <- plot(x = csv_data$x,
+plot(x = csv_data$x,
      y = csv_data$y,
      xlab = "x",
      ylab = "y",
@@ -16,14 +21,11 @@ plot(x = csv_data$x,
      col = "black",
      main = "Linear Model2 - R")
   
-my_plot2 <- abline(lm(csv_data$x ~ csv_data$y,
+abline(lm(csv_data$x ~ csv_data$y,
           data = csv_data), col = "black")
 
-# PNG device
-png("my_plot2.png")
-
-# Code
-plot(rnorm(20))
-
-# Close device
+# Save our file and return to our interactive session
 dev.off()
+
+# Verify that we have created the file
+list.files(pattern = "png")
