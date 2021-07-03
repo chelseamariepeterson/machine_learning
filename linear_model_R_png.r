@@ -1,8 +1,9 @@
+#!/bin/bash
 csv_data<-read.csv("regrex1.csv")
 
 print(csv_data)
 
-plot(x = csv_data$x,
+my_plot <- plot(x = csv_data$x,
      y = csv_data$y,
      xlab = "x",
      ylab = "y",
@@ -15,10 +16,14 @@ plot(x = csv_data$x,
      col = "black",
      main = "Linear Model2 - R")
   
-abline(lm(csv_data$x ~ csv_data$y,
+my_plot2 <- abline(lm(csv_data$x ~ csv_data$y,
           data = csv_data), col = "black")
 
-#PNG print
-png(plot(abline(lm(csv_data)))
+# PNG device
+png("my_plot2.png")
 
+# Code
+plot(rnorm(20))
 
+# Close device
+dev.off()
