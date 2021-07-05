@@ -21,7 +21,7 @@ plot(x = csv_data$x,
      col = "black",
      main = "Linear Model2 - R")
   
-abline(lm(csv_data$x ~ csv_data$y,
+abline(lm(csv_data$y ~ csv_data$x,
           data = csv_data), col = "black")
 
 # Save our file and return to our interactive session
