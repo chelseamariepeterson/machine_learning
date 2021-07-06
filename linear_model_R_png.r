@@ -1,19 +1,18 @@
 #!/bin/bash
 
-# Call png() with the name of the file we want to create
-png("my_plot.png")
-
 # Re-create the plot from the last exercise
-csv_data<-read.csv("regrex1.csv")
+args = commandArgs(trailingOnly=TRUE)
+csv_data<-read.csv(args[1])
 
-print(csv_data)
 
+png('r_orig.png')
 plot(x = csv_data$x,
      y = csv_data$y,
      xlab = "x",
      ylab = "y",
      main = "Linear Model - R")
 
+png('r_lm.png')
 plot(x = csv_data$x,
      y = csv_data$y,
      xlab = "x",
